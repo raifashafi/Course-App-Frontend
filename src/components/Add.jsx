@@ -19,7 +19,7 @@ const Add = () => {
     }
     const readValue=()=>{
         console.log(data)
-        axios.post("http://localhost:8081/add",data).then(
+        axios.post("http://localhost:8084/add",data).then(
             (response)=>
                 {
                     console.log(response.data)

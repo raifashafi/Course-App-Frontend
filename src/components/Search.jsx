@@ -10,13 +10,28 @@ export const Search = () => {
     }
   )
   const [result,setResult]=useState([])
+  // INPUT FETCHING
+    const deleteCourse=(id)=>{
+      let input = {"_id": id}
+      axios.post("http://localhost:8084/delete",input).then(
+        (response)=>{
+          console.log(response.data)
+          if (response.data.status== "success") {
+            alert("successfully deleted")
+          } else {
+            alert("error in deletion")
+          }
+        }
+      ).catch().finally()
+    }
     const inputHandler=(event)=>
         {
       setData({...data,[event.target.name]:event.target.value})
         }
+        // SEARCH BUTTON EVENT
     const readValue=()=>{
         console.log(data)
-        axios.post("http://localhost:8082/search",data).then(
+        axios.post("http://localhost:8084/search",data).then(
           (response)=>{
           console.log(response.data)           
           setResult(response.data)
@@ -49,6 +64,7 @@ export const Search = () => {
               <table class="table">
   <thead>
     <tr>
+    <th scope="col">#</th>
       <th scope="col">coursetitle</th>
       <th scope="col">coursedescription</th>
       <th scope="col">date</th>
@@ -62,13 +78,16 @@ export const Search = () => {
     result.map(
       (value,index)=>{
         return  <tr>
-        <th scope="row">1</th>
+        <th scope="row">{index}</th>
         <td>{value.coursetitle}</td>
         <td>{value.coursedescription}</td>
         <td>{value.date}</td>
         <td>{value.duration}</td>
         <td>{value.venue}</td>
         <td>{value.trainername}</td>
+        <td>
+          <button className="btn btn-danger" onClick={()=>{deleteCourse(value._id)}}>delete</button>
+        </td>
       </tr>
       }
     )
