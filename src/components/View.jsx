@@ -38,7 +38,7 @@ const View = () => {
         (value,index)=>{
             return   <tr>
         <th scope="row">{index}</th>
-        <td>{value.coursetiitle}</td>
+        <td>{value.coursetitle}</td>
         <td>{value.coursedescription}</td>
         <td>{value.date}</td>
         <td>{value.duration}</td>

@@ -5,7 +5,7 @@ import axios from 'axios'
 const Add = () => {
     const [data,setData]=useState([
         {
-        "coursetiitle":"",    
+        "coursetitle":"",    
         "coursedescription":"",
         "date":"",
         "duration":"",
@@ -43,7 +43,7 @@ const Add = () => {
                 <div className="row g-3">
                     <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
                         <label htmlFor="" className="form-label">COURSE TITLE</label>
-                        <select name="" id="" className="form-control"name='coursetitle'value={data.coursetiitle} onChange={inputHandler}>
+                        <select name="coursetitle" id="" className="form-control" value={data.coursetitle} onChange={inputHandler}>
                             <option value="MTECH">MTECH</option>
                             <option value="MCA">MCA</option>
                             <option value="MBA">MBA</option>
@@ -52,11 +52,11 @@ const Add = () => {
                     </div>
                     <div className="col col-12 col-sm-6 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <label className="form-label">COURSE DESCRIPTION</label>
-                        <textarea name="" id="" className="form-control" name='coursedescription' value={data.coursedescription} onChange={inputHandler}></textarea>
+                        <textarea name="coursedescription" id="" className="form-control" value={data.coursedescription} onChange={inputHandler}></textarea>
                     </div>
                     <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
                         <label htmlFor="" className="form-label">date</label>
-                        <input type="date" name="" id="" className="form-control" name='date' value={data.date} onChange={inputHandler} />
+                        <input type="date" name="date" id="" className="form-control" value={data.date} onChange={inputHandler} />
                     </div>
                     <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
                         <label htmlFor="" className="form-lab">Duration</label>
